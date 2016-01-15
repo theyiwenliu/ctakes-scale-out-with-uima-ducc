@@ -1,0 +1,38 @@
+# 
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+# 
+#   http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# 
+description	        cTAKES scale out
+driver_descriptor_CR    ${CTAKES_HOME}/desc/ctakes-core/desc/collection_reader/FilesInDirectoryCollectionReader.xml
+process_descriptor_AE   ${CTAKES_HOME}/desc/ctakes-clinical-pipeline/desc/analysis_engine/AggregatePlaintextUMLSProcessor.xml
+process_descriptor_CC   ${CTAKES_HOME}/desc/ctakes-core/desc/cas_consumer/FileWriterCasConsumer.xml
+scheduling_class        normal
+working_directory       ${HOME}/src
+log_directory           ${HOME}/src/logs
+classpath               ${CTAKES_HOME}/desc:${CTAKES_HOME}/resources:${CTAKES_HOME}/lib/*:${DUCC_HOME}/lib/*
+driver_descriptor_CR_overrides  InputDirectory=${HOME}/src/input
+process_descriptor_CC_overrides outputDir=${HOME}/src/output
+process_memory_size            2
+process_jvm_args               -Xmx4g
+driver_jvm_args                -Xmx4g
+process_thread_count           2
+process_per_item_time_max      5
+process_deployments_max        999
+environment                    AE_INIT_TIME=5 AE_INIT_RANGE=5 INIT_ERROR=0
+process_initialization_time_max 1
+cancel_on_interrupt
+wait_for_completion
