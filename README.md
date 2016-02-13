@@ -1,4 +1,4 @@
-# cTAKES Scale out with UIMA DUCC  
+# ctakes scale out with uima ducc  
 
 # Shangridocs Integration Readme   
 https://github.com/emmaliucs/cTAKES-Scale-out-with-UIMA-DUCC/blob/master/shangridocs/README.md
