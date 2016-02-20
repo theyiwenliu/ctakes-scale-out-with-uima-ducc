@@ -1,24 +1,24 @@
 # ctakes scale out with uima ducc  
 
-# Shangridocs Integration Readme   
+## Shangridocs Integration Readme   
 https://github.com/emmaliucs/cTAKES-Scale-out-with-UIMA-DUCC/blob/master/shangridocs/README.md
 
-# cTAKES Installation  
+## cTAKES Installation  
 Download cTAKES zipfile and resource file.  
 Just same as the step "Installing cTAKES" in:  
 https://wiki.apache.org/tika/cTAKESParser  
 
-# DUCC Guide (Especially for cTAKES)
+## DUCC Guide (Especially for cTAKES)
 
-## DUCC Docs:
+### DUCC Docs:
 1. https://cwiki.apache.org/confluence/display/UIMA/DUCC
 2. http://uima.apache.org/d/uima-ducc-2.0.1/duccbook.html
 
-## DUCC Setup:
+### DUCC Setup:
 Be sure to start with Java 7 [1]
 See doc 1 https://cwiki.apache.org/confluence/display/UIMA/DUCC
 
-## Major commands needed in ducc (details in doc 2):
+### Major commands needed in ducc (details in doc 2):
 * **${DUCC_HOME}/admin/ducc_post_install**  
   For setting up configuration file for ducc.  
   If network changes(hostname changes), will need to rerun it.  
@@ -54,11 +54,11 @@ See doc 1 https://cwiki.apache.org/confluence/display/UIMA/DUCC
   Job 1 submitted
   Or it might fail with two situations I know, Conection Failed[2] or System error[3]  
 
-## Set Up a Working Directory  
+### Set Up a Working Directory  
 * Inside working directory, create a input directory, output directory, logs directory, and clone the cTAKES directory.  
 * Specify above information in the job file.
 
-## Web Server:
+### Web Server:
   The DUCC Web Server default address is accessed from the URL http://[DUCC-HOST]:42133.  
   The [DUCC-HOST] is the hostname where the local installation has installed the DUCC Web Server.  
   For example, http://guest-wireless-nup-nat-206-117-89-008.usc.edu:42133/jobs.jsp to see job status.
@@ -74,7 +74,13 @@ export ctakes.umlsuser=[username], ctakes.umlspw=[password]  or
 change them in ${CTAKES_HOME}/desc/ctakes-dictionary-lookup/desc/analysis_engine/DictionaryLookupAnnotator.xml  
 
 
-
+## Additional Note
+For simplicity, I put the project under user "ducc" instead of different users.  
+If you are using ducc to run ctakes, the ctakes should be placed with ducc under user "ducc".  
+If Excecuting ducc under different user, make sure to switch to "ducc", if you are not sure which context you are calling ducc you can take a look at the properties file after submitting the job.
+  
+  
+## References for Trouleshooting
 [1] If with Java 8, web server will fail to start with following error:  
 Problem accessing /system.daemons.jsp. Reason:  
 PWC6033: Unable to compile class for JSP  
