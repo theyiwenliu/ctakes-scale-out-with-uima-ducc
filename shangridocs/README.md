@@ -13,3 +13,7 @@ Or we can come up with a way to specify the path for this directory in a better 
 ## Update 1/11/2016  
 * Added CTAKESContentToMetadataHandler to convert the cTAKES XML output to metadata based on CTAKESContentHandler  
 * CTAKESContentHandler path: shangridocs/shangridocs-services/src/main/resources/CTAKESContentHandler
+
+## Aditional Note
+The wait_for_completion property doesn't work for the main process to finish, i.e. we don't know the exact point when ducc finishes its job and generate output.  
+Waiting for uima dev team's reply.
